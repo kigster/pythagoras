@@ -1,0 +1,25 @@
+name: C/C++ CI
+
+on:
+  push:
+      branches: [ main ]
+  pull_request:
+      branches: [ main ]
+
+jobs:
+  build-and-test:
+      runs-on: ubuntu-latest
+      steps:
+      - uses: actions/checkout@v2
+      - name: install cppunit
+        run:
+          sudo apt install -y libcppunit-dev
+      - name: run make
+        run:
+          make clean && make  -j 12
+      - name: validate the binary 
+        run:
+          app/build/pythogaras -d 10  | grep -q '^ c1-\[7.07\]-•-hyp-\[10.00\]-•-c2-\[7.07\]'
+      - name: validate the binary 
+        run:
+          app/build/pythagoras -c 3 4 | grep -q '^ c1-\[3.00\]-•-hyp-\[5.00\]-•-c2-\[4.00\]'
