@@ -1,6 +1,6 @@
 [![C/C++ CI](https://github.com/kigster/pythagoras/actions/workflows/build.yml/badge.svg)](https://github.com/kigster/pythagoras/actions/workflows/build.yml)
 
-# pythagoras
+# Pythagoras
 
 Super simple C++ calculator that computes either a hypothenuse from the equal cathet, or vice versa.
 
